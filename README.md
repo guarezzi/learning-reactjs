@@ -1,4 +1,4 @@
-### Executando o projeto ###
+### Running the project ###
 
 The project uses json-server to simulate backend operations (REST APIs and store database).
 That's why we need to start json-server first running the following command line:
