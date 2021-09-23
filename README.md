@@ -1,20 +1,12 @@
 ### Executando o projeto ###
 
-O projeto utiliza o json-server para simular operações de backend (REST API) e a base de dados.
-Por isso precisamos inicializar o json-server executando:
+The project uses json-server to simulate backend operations (REST APIs and store database).
+That's why we need to start json-server first running the following command line:
 
-``
+> json-server db.json --watch
 
-json-server db.json --watch
+The json-server will start a nodejs on 3000 port. So we can start our ReactJS project into another terminal instance:
 
-``
+> npm start
 
-O json-server subirá um server node na porta 3000 e em seguida poderemos subir nosso projeto em outro terminal executando:
-
-``
-
-npm start
-
-``
-
-a execução do cmd vai informar que a porta 3000 já está em uso e questiona se queremos utilizar outra porta, basta teclar Y (ou apenas enter) para continuar.
+The run will inform you that 3000 port is used and prompt you to use another one. Just type Y or Enter to continue.
