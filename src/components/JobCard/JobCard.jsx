@@ -4,7 +4,7 @@ import React from 'react';
 
 function JobCard({job}) {
     return (
-        <Card>
+        <Card style={{ marginTop: "8px" }}>
             <CardContent>{ job?.title }</CardContent>
             <CardActions>
                 <Button size="small" color="primary"

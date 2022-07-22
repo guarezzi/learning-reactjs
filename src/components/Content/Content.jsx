@@ -7,7 +7,7 @@ import Jobs from '../../pages/Jobs/Jobs';
 
 function Content() {
     return (
-        <Container maxWidth="md">
+        <Container maxWidth="md" style={{ marginBottom: "24px" }}>
             <Router>
                 <Switch>
 

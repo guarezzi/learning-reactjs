@@ -3,7 +3,7 @@ import { AppBar, Toolbar } from "@material-ui/core";
 
 function Navbar() {
     return (
-        <AppBar position="static">
+        <AppBar position="static" style={{ marginBottom: "24px" }}>
             <Toolbar>
             </Toolbar>
         </AppBar>

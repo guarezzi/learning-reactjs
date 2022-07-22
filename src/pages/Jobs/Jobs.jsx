@@ -21,26 +21,26 @@ function Jobs() {
 
     return (
         <div>
-            <Grid container spacing={1} alignItems="flex-end">
+            <Grid container spacing={3} alignItems="flex-end" style={{ marginBottom: "24px" }}>
                 <Grid item>
-                    <SearchIcon />
+                    <SearchIcon/>
                 </Grid>
                 <Grid item md={7}>
                     <TextField
+                        fullWidth
                         id="search-job"
                         label="Buscar oportunidade"
-                        fullWidth
                         value={keyword}
                         onChange={event => setKeyword(event.target.value)} />
                 </Grid>
-                <Grid item>
+                <Grid item md={"auto"}>
                     <Button
                         color="primary"
                         variant="contained"
                         onClick={search}
                     >Pesquisar</Button>
                 </Grid>
-                <Grid item>
+                <Grid item md={"auto"}>
                     <Button
                         color="primary"
                         variant="contained"
