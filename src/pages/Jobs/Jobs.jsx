@@ -49,7 +49,7 @@ function Jobs() {
                     >Adicionar Vaga</Button>
                 </Grid>
             </Grid>
-            { jobs?.map( (job) => <JobCard job={job} />) }
+            { jobs?.map( (job, index) => <JobCard job={job} key={`job-${index}`} />) }
         </div>
     );
 }

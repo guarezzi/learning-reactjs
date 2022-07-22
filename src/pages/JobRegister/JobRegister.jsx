@@ -22,6 +22,7 @@ function JobRegister() {
 
     return (
         <form noValidate onSubmit={$event => register($event)}>
+
             <Grid item>
                 <TextField
                     id="job-title"
@@ -30,6 +31,7 @@ function JobRegister() {
                     value={title}
                     onChange={event => setTitle(event.target.value)}
                     required
+                    style={{ marginBottom: '14px' }}
                 />
                 <TextField
                     id="job-description"
@@ -38,6 +40,7 @@ function JobRegister() {
                     value={description}
                     onChange={event => setDescription(event.target.value)}
                     required
+                    style={{ marginBottom: '14px' }}
                 />
                 <TextField
                     id="job-pre-requirements"
@@ -46,6 +49,7 @@ function JobRegister() {
                     value={prerequirements}
                     onChange={event => setPrerequirements(event.target.value)}
                     required
+                    style={{ marginBottom: '14px' }}
                 />
                 <TextField
                     id="job-salary"
@@ -54,15 +58,18 @@ function JobRegister() {
                     value={salary}
                     onChange={event => setSalary(event.target.value)}
                     required
+                    style={{ marginBottom: '14px' }}
                 />
             </Grid>
-            <Grid item>
+
+            <Grid item style={{ marginTop: '12px', textAlign: 'right' }}>
                 <Button
                     variant="outlined"
                     color="default"
                     type="button"
                     component={Link}
                     to="/"
+                    style={{ marginRight: "8px" }}
                 >Voltar</Button>
 
                 <Button
@@ -72,6 +79,7 @@ function JobRegister() {
                 >Salvar</Button>
 
             </Grid>
+
         </form>
     );
 }

@@ -31,20 +31,26 @@ function Job() {
     return (
         <Grid container spacing={1} alignItems="flex-end">
             <form noValidate autoComplete="off" onSubmit={$event => apply($event)}>
+                
                 <JobDetails job={job} />
-                <Grid item justifyContent="space-between">
+
+                <hr style={{ borderColor: 'lightgrey' }} />
+
+                <Grid item>
                     <Button
                         type="submit"
                         variant="outlined"
                         color="default"
                         component={Link}
                         to="/"
+                        style={{ marginRight: '8px' }}
                     >Voltar</Button>
 
                     <Button
                         type="submit"
                         variant="contained"
                         color="primary"
+                        style={{ float: 'right' }}
                     >Candidatar-se</Button>
                 </Grid>
 
