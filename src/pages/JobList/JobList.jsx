@@ -10,6 +10,9 @@ function Jobs() {
     const [jobs, setJobs] = useState([]);
 
     function search() {
+        JobService.search(keyword).then(
+            response => setJobs(response)
+        )
         console.log(`Buscando jobs com a palavra ${keyword}`);
     }
 

@@ -15,7 +15,6 @@ async function get(id) {
 
     const result = await api.get(`/jobs/${id}`);
     return result.data;
-
 }
 
 async function remove(id) {
@@ -33,6 +32,11 @@ async function save(job) {
     return result.data;
 }
 
-const JobService = { list, get, remove, save, update }
+async function search(term) {
+    const result = await api.get(`/jobs?title_like=${term}`);
+    return result.data;
+}
+
+const JobService = { list, get, remove, save, update, search }
 export default JobService;
 
