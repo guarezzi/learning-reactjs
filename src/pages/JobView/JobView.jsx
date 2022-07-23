@@ -36,7 +36,7 @@ function Job() {
 
                 <hr style={{ borderColor: 'lightgrey' }} />
 
-                <Grid item>
+                <Grid item style={{ textAlign: 'right' }}>
                     <Button
                         type="submit"
                         variant="outlined"
@@ -50,7 +50,6 @@ function Job() {
                         type="submit"
                         variant="contained"
                         color="primary"
-                        style={{ float: 'right' }}
                     >Candidatar-se</Button>
                 </Grid>
 

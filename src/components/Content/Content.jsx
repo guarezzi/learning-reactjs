@@ -1,9 +1,9 @@
 import { Container } from '@material-ui/core';
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Job from '../../pages/Job/Job';
-import JobRegister from '../../pages/JobRegister/JobRegister';
-import Jobs from '../../pages/Jobs/Jobs';
+import JobView from '../../pages/JobView/JobView';
+import JobForm from '../../pages/JobForm/JobForm';
+import JobList from '../../pages/JobList/JobList';
 
 function Content() {
     return (
@@ -12,15 +12,15 @@ function Content() {
                 <Switch>
 
                     <Route exact path='/'>
-                        <Jobs />
+                        <JobList />
                     </Route>
 
                     <Route exact path='/job/:id'>
-                        <Job />
+                        <JobView />
                     </Route>
 
                     <Route exact path='/new-job'>
-                        <JobRegister />
+                        <JobForm />
                     </Route>
 
                 </Switch>
