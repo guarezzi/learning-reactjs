@@ -1,4 +1,5 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid } from '@material-ui/core';
+import { IJobDetailsDTO } from 'components/JobDetails/IJobDetailsDTO';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -6,19 +7,23 @@ import { Link } from 'react-router-dom';
 import JobService from '../../assets/services/job.service';
 import JobDetails from '../../components/JobDetails/JobDetails';
 
+type JobParams = {
+    id: string;
+}
+
 function Job() {
-    const { id } = useParams();
-    const [job, setJob] = useState({});
-    const [openDialog, setOpenDialog] = useState(false);
+    const { id } = useParams<JobParams>();
+    const [job, setJob] = useState<IJobDetailsDTO>();
+    const [openDialog, setOpenDialog] = useState<boolean>(false);
 
     const loadData = () => {
-        JobService.get(id)
+        JobService.get(Number(id))
             .then((data) => setJob(data))
     }
 
     useEffect(loadData, [id]);
 
-    function apply(event) {
+    function apply(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         console.log(`Applied to the job. Good lucky!`);
         setOpenDialog(true);

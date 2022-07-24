@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Button, Grid, TextField } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
-import JobCard from '../../components/JobCard/JobCard';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import JobService from '../../assets/services/job.service';
+import JobCard from '../../components/JobCard/JobCard';
+import { IJobListDTO } from 'components/JobCard/IJobListDTO';
 
-function Jobs() {
-    const [keyword, setKeyword] = useState('');
-    const [jobs, setJobs] = useState([]);
+function JobList() {
+    const [keyword, setKeyword] = useState<string>('');
+    const [jobs, setJobs] = useState<IJobListDTO[]>([]);
 
     function search() {
         JobService.search(keyword).then(
@@ -57,4 +58,4 @@ function Jobs() {
     );
 }
 
-export default Jobs;
+export default JobList;

@@ -1,23 +1,31 @@
 import { Button, Grid, TextField } from '@material-ui/core';
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { IJobDetailsDTO } from 'components/JobDetails/IJobDetailsDTO';
+import React, { FormEvent, useState } from 'react';
+import { Link } from 'react-router-dom';
 import JobService from '../../assets/services/job.service';
 
 function JobRegister() {
 
-    const [title, setTitle] = useState();
-    const [description, setDescription] = useState();
-    const [prerequirements, setPrerequirements] = useState();
-    const [salary, setSalary] = useState();
+    const initialValues = {
+        id: 0,
+        description: '',
+        prerequirements: '',
+        title: '',
+        salary: 0
+    };
 
-    function register(event) {
+    const [job, setJob] = useState<IJobDetailsDTO>(initialValues);
+
+    function register(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
-
-        const job = { title, description, prerequirements, salary };
 
         JobService.save(job).then(
             () => alert(`Job registered successfully!`) // it will be a modal
         );
+    }
+
+    function onChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+        setJob({...job, [event.target.name]: event.target.value });
     }
 
     return (
@@ -28,8 +36,9 @@ function JobRegister() {
                     id="job-title"
                     label="Título"
                     fullWidth
-                    value={title}
-                    onChange={event => setTitle(event.target.value)}
+                    value={job.title}
+                    name="title"
+                    onChange={onChange}
                     required
                     style={{ marginBottom: '14px' }}
                 />
@@ -37,8 +46,9 @@ function JobRegister() {
                     id="job-description"
                     label="Descrição"
                     fullWidth
-                    value={description}
-                    onChange={event => setDescription(event.target.value)}
+                    value={job.description}
+                    name="description"
+                    onChange={onChange}
                     required
                     style={{ marginBottom: '14px' }}
                 />
@@ -46,8 +56,9 @@ function JobRegister() {
                     id="job-pre-requirements"
                     label="Pré-requisitos"
                     fullWidth
-                    value={prerequirements}
-                    onChange={event => setPrerequirements(event.target.value)}
+                    value={job.prerequirements}
+                    name="prerequirements"
+                    onChange={onChange}
                     required
                     style={{ marginBottom: '14px' }}
                 />
@@ -55,8 +66,10 @@ function JobRegister() {
                     id="job-salary"
                     label="Salário"
                     fullWidth
-                    value={salary}
-                    onChange={event => setSalary(event.target.value)}
+                    value={job.salary}
+                    name="salary"
+                    type={'number'}
+                    onChange={onChange}
                     required
                     style={{ marginBottom: '14px' }}
                 />

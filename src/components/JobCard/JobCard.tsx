@@ -1,14 +1,14 @@
 import { Button, Card, CardActions, CardContent } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import React from 'react';
+import { IJobListDTO } from './IJobListDTO';
 
-function JobCard({job}) {
+function JobCard(props: { job: IJobListDTO }) {
     return (
         <Card style={{ marginTop: "8px" }}>
-            <CardContent>{ job?.title }</CardContent>
+            <CardContent>{ props.job?.title }</CardContent>
             <CardActions>
                 <Button size="small" color="primary"
-                    component={Link} to={`/job/${job.id}`}>Saiba Mais</Button>
+                    component={Link} to={`/job/${props.job.id}`}>Saiba Mais</Button>
             </CardActions>
         </Card>
     );
