@@ -53,7 +53,7 @@ function JobList() {
                     >Adicionar Vaga</Button>
                 </Grid>
             </Grid>
-            { jobs?.map( (job, index) => <JobCard job={job} key={`job-${index}`} />) }
+            { jobs?.map( (job, index) => <JobCard job={job} removeCallback={loadJobs} key={`job-${index}`} />) }
         </div>
     );
 }

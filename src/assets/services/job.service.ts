@@ -22,6 +22,9 @@ async function get(id: number): Promise<IJobDTO> {
 async function remove(id: number) {
     if (Number.isNaN(Number(id)))
         throw Error(`JobService.remove parameter 'id' must be a number: ${id}`);
+
+    const result = await api.delete(`/jobs/${id}`);
+    return result.data;
 }
 
 async function update(job: IJobDTO) {
