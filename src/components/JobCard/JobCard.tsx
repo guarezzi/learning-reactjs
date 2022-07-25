@@ -10,7 +10,6 @@ function JobCard(props: { job: IJobListDTO, removeCallback: (id: number) => void
     const [removendo, setRemovendo] = useState<number>(0);
 
     function excluir(id: number) {
-        alert(`excluindo sapoha: ${id}`);
         setRemovendo(id);
         JobService.remove(id)
             .then( 
